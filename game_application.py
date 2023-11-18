@@ -13,7 +13,7 @@ class GameApplication():
 	An instance of your game.
 	"""
 
-	_motd = "Greets from the Simple Pygame wrapper (SPy). https://github.com/gregkrsak"
+	_motd = "Greets from the Simple Pygame wrapper (SPy). https://github.com/gregkrsak/SPy"
 
 	def __init__(self):
 		pygame.init()
