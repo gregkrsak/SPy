@@ -1,12 +1,9 @@
 # game_sprite.py
 
-from mvc import View
-
 from game_position import GamePosition
 from game_state import GameState
 from game_object import GameObject
 from game_image import GameImage
-from game_group import GameGroup
 from game_screen import GameScreen
 
 import pygame

@@ -1,9 +1,5 @@
 # game_application.py
 
-from mvc import Controller
-
-from game_screen import GameScreen
-
 import pygame
 from pygame.locals import *
 
