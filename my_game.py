@@ -13,6 +13,10 @@ from game_image import GameImage
 from game_state import GameState
 from game_group import GameGroup
 from game_position import GamePosition
+from game_queue import GameQueue
+
+# TODO: Wrap this
+import threading
 
 
 # Create the game instance
@@ -39,6 +43,11 @@ player.set_animation_for_state([image_1, image_2], state_stationary)
 # Add sprites to group
 player_group.add(player)
 
+# Create queues
+clear_screen_queue = GameQueue(
+				controller = None, # FIXME: testing purposes only
+				callback = lambda value: screen.clear_with(value)
+			)
 
 # Test game loop
 i = 0
@@ -51,6 +60,9 @@ while i < 5:
 	application.wait_for_keypress()
 
 	# Clear the screen
-	screen.clear()
+	clear_screen_queue.put(screen.background_color)
+	print(clear_screen_queue.qsize())
+
+	# FIXME: This works-ish but is glitchy! More work to do...
 
 	i += 1
