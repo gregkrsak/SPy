@@ -51,6 +51,6 @@ while i < 5:
 	application.wait_for_keypress()
 
 	# Clear the screen
-	screen.output.fill((0, 0, 0))
+	screen.clear()
 
 	i += 1
