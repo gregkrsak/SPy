@@ -59,10 +59,8 @@ while i < 5:
 	# Wait for the user to press any key
 	application.wait_for_keypress()
 
-	# Clear the screen
+	# Clear the screen and update
 	clear_screen_queue.put(screen.background_color)
-	print(clear_screen_queue.qsize())
-
-	# FIXME: This works-ish but is glitchy! More work to do...
+	screen.tick()
 
 	i += 1
