@@ -67,9 +67,11 @@ photo_group.add(photo)
 art_group.add(art)
 
 # Create queues
-clear_screen_queue = GameQueue(
+def art_motion_callback(value):
+	art_location.x += value
+art_motion_queue = GameQueue(
 	controller = None, # FIXME: testing purposes only
-	callback = lambda value: screen.clear_with(value)
+	callback = art_motion_callback
 )
 
 # Test game loop
@@ -81,11 +83,14 @@ while i < 6:
 	art.tick()
 	screen.tick()
 
+	# Move the art asynchronously
+	art_motion_queue.put(16)
+
 	# Wait for the user to press any key
 	application.wait_for_keypress()
 
 	# Clear the screen and update
-	clear_screen_queue.put(screen.background_color)
+	screen.clear()
 	screen.tick()
 
 	i += 1 
