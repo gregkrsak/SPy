@@ -74,9 +74,12 @@ art_motion_queue = GameQueue(
 	callback = art_motion_callback
 )
 
-# Test game loop
+### GAME LOOP ###################################################################
 i = 0
 while i < 6:
+	# Clear the screen
+	screen.clear()
+
 	# Animate the sprite
 	player.tick()
 	photo.tick()
@@ -89,8 +92,5 @@ while i < 6:
 	# Wait for the user to press any key
 	application.wait_for_keypress()
 
-	# Clear the screen and update
-	screen.clear()
-	screen.tick()
-
 	i += 1 
+#################################################################################
