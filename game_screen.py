@@ -21,6 +21,10 @@ class GameScreen(View):
 	def clear(self):
 		self.output.fill(self.background_color)
 
+	# Clears the screen to the specified RGB value
+	def clear_with(self, color):
+		self.output.fill(color)
+
 	# Call this to update the screen with the latest changes
 	def tick(self):
 		pygame.display.update()
